@@ -27,15 +27,29 @@
     <button id="clear-grid" class="green-button">clear</button>
     <input type="submit" class="blue-button" value="Create Grid">
   </form>
+
   <label for="color-picker">Pick A Color</label>
   <div class="color-tile">
     <input type="color" id="color-picker" value="#03A9F4">
   </div>
 
+<!-- TODO: Implement tool selector -->
+  <div id="tool-picker">
+    <input type="radio" id="picker" name="tool" value="picker">
+    <label for="picker" class="tile"><i class="fas fa-eye-dropper"></i></label>
+    <span class="divider"></span>
+    <input type="radio" id="pen" name="tool" value="pen" checked>
+    <label for="pen" class="tile"><i class="fas fa-pencil-alt"></i></label>
+    <input type="radio" id="eraser" name="tool" value="eraser">
+    <label for="eraser" class="tile"><i class="fas fa-eraser"></i></label>
+    <!-- <input type="radio" id="paint" name="tool" value="paint">
+    <label for="paint"><i class="fas fa-tint"></i></label> -->
+  </div>
+
   <table id="pixel-canvas">
   </table>
   <!-- TODO: add footer -->
-  <script src="https://use.fontawesome.com/642f62810d.js"></script>
+  <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="resources/js/designs.js"></script>
 </body>
