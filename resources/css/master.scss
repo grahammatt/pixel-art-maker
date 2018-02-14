@@ -60,7 +60,8 @@ h1 {
 
 form {
   @include shadow(2);
-  max-width: 500px;
+  // TODO: figure out how to set the width to fit all on one line
+  max-width: 510px;
   margin: 0 auto;
   padding: 10px;
   color: $text-color-dark;
