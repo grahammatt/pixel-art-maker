@@ -28,20 +28,19 @@ function setGridHandler() { //function to set event listeners on the new grid
 
 function makeGrid() {
   pixelCanvas.empty(); //removes all children from the table
-  let htmlGrid = [];
-  //storing the grid html in array to be pushed all at once instead of manipulating the dom in the loops
-  // TODO: look into using a DOM object instead of an array
-  let gridHeight = inputHeight.val(),
+  //storing the grid html in a document fragment to be pushed all at once instead of manipulating the dom in the loops
+  let fragment = document.createDocumentFragment(),
+    gridHeight = inputHeight.val(),
     gridWidth = inputWidth.val();
 
   for (let i = 0; i < gridHeight; i++) {
-    htmlGrid.push("<tr>"); //add row to array
+    fragment.prepend(document.createElement('tr')); //prepend empty row to fragment
+    let row = fragment.firstElementChild;  //cache created row
     for (let j = 0; j < gridWidth; j++) {
-      htmlGrid.push("<td></td>"); //add cell
+      row.append(document.createElement('td')); //append cell to cached row
     }
-    htmlGrid.push("</tr>"); //close row
   }
-  pixelCanvas.append(htmlGrid); //add the grid markup to the DOM
+  pixelCanvas.append(fragment); //add the grid markup to the DOM
   setGridHandler(); //set the event listners on the grid
 }
 
@@ -62,7 +61,7 @@ $(function() {
 
   $(document).on('dragstart', function(event) {
       // I had issues with dragging nonexistant things bugging out the mouseDown value. this code fixes that problem
-      // by dissallowing dragging on the webpage
+      // by dissallowing dragging on the webpage, If I need dragging enabled in the future I'll fix it another way.
       event.preventDefault();
     })
     .mousedown(function() {
