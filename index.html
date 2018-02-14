@@ -20,13 +20,13 @@
 
   <form id="size-picker">
     <div class="size-wrap">
-      <h2>Choose Size</h2> Height:
+      <h2>Canvas Size</h2> Height:
       <input type="number" id="input-height" name="height" min="1" max="64" value="20"> Width:
       <input type="number" id="input-width" name="width" min="1" max="64" value="20">
     </div>
-    <input type="submit" value="Create Grid">
+    <button id="clear-grid" class="green-button">clear</button>
+    <input type="submit" class="blue-button" value="Create Grid">
   </form>
-
   <label for="color-picker">Pick A Color</label>
   <div class="color-tile">
     <input type="color" id="color-picker" value="#03A9F4">

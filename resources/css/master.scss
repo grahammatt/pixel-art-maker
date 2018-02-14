@@ -7,8 +7,11 @@ $primary-color-light: #B3E5FC;
 $accent-color: #03A9F4;
 $text-color-light: #FAFAFA;
 $text-color-dark: #6c6c6c;
+$green: #64DB64;
+$orange: #FFA052;
 $body-font: 'Roboto', sans-serif;
-$head-font: 'Bungee', cursive; /**
+$head-font: 'Bungee', cursive;
+/**
  * A mixin which helps you to add depth to elements according to the Google Material Design spec:
  * http://www.google.com/design/spec/layout/layout-principles.html#layout-principles-dimensionality
  *
@@ -34,124 +37,152 @@ $head-font: 'Bungee', cursive; /**
 }
 
 body {
-  color      : $text-color-dark;
-  background : $background;
-  text-align : center;
+  color: $text-color-dark;
+  background: $background;
+  text-align: center;
   font-family: $body-font;
 }
 
 header {
   @include shadow(1);
   margin-bottom: 20px;
-  padding      : .5em 0;
-  background   : $primary-color;
+  padding: 0.5em 0;
+  background: $primary-color;
 }
 
 h1 {
-  margin     : .1em;
-  color      : $text-color-light;
+  margin: 0.1em;
+  color: $text-color-light;
   font-family: $head-font;
-  font-size  : 60px;
+  font-size: 60px;
   font-weight: normal;
 }
 
 form {
   @include shadow(2);
-  max-width       : 400px;
-  margin          : 0 auto;
-  padding         : 10px;
-  color           : $text-color-dark;
-  overflow        : hidden;
-  border-radius   : 3px;
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 10px;
+  color: $text-color-dark;
+  overflow: hidden;
+  border-radius: 3px;
   background-color: $white-background;
 
   .size-wrap {
     display: inline-block;
 
     h2 {
-      margin     : 0 0 10px;
+      margin: 0 0 10px;
       font-weight: normal;
     }
   }
 }
 
 label {
-  display  : inline-block;
-  margin   : 1em 0 .25em;
+  display: inline-block;
+  margin: 1em 0 0.25em;
   font-size: 40px;
 }
 
 table,
 td,
 tr {
-  border    : 1px solid #808080;
+  border: 1px solid #808080;
   background: #fff;
   box-sizing: border-box;
 }
 
 table {
-  margin         : 20px auto;
+  margin: 20px auto;
   border-collapse: collapse;
 }
 
 td {
   min-width: 20px;
-  height   : 20px;
+  height: 20px;
 }
 
 input {
   &[type='number'] {
     @include shadow(1);
-    display      : inline-block;
-    width        : 2.5em;
-    padding-left : .2em;
-    border       : 0;
+    display: inline-block;
+    width: 2.5em;
+    padding-left: 0.2em;
+    border: 0;
     border-radius: 3px;
   }
 
-  &[type='submit'] {
-    @include shadow(1);
-    float           : right;
-    margin-top      : 3px;
-    padding         : 15px;
-    color           : $text-color-light;
-    border          : 0;
-    border-radius   : 3px;
-    background-color: $accent-color;
-    text-align      : center;
-    font-family     : $head-font;
-    font-size       : 20px;
-    transition      : .3s cubic-bezier(.25, .8, .25, 1);
-    cursor          : pointer;
+  &[type='color'] {
+    width: 35px;
+    height: 35px;
+    opacity: 0;
+    border: 0;
+    cursor: pointer;
+  }
+}
+// TODO: two button classes shouldnt be necessary, figure out why you couldnt get bg color classes to work
 
-    &:focus {
-      background-color: darken($accent-color, 5%);
-      outline         : 0;
-    }
+.blue-button {
+  @include shadow(1);
+  float: right;
+  margin-top: 3px;
+  margin-left: 10px;
+  font-size: 20px;
+  padding: 15px;
+  color: $text-color-light;
+  border: 0;
+  border-radius: 3px;
+  background-color: $accent-color;
+  text-align: center;
+  font-family: $head-font;
+  transition: 0.3s cubic-bezier(.25, .8, .25, 1);
+  cursor: pointer;
 
-    &:hover {
-      @include shadow(2);
-    }
+  &:focus {
+    background-color: darken($accent-color, 5%);
+    outline: 0;
   }
 
-  &[type='color'] {
-    width  : 35px;
-    height : 35px;
-    opacity: 0;
-    border : 0;
-    cursor : pointer;
+  &:hover {
+    @include shadow(2);
+  }
+}
+
+.green-button {
+  @include shadow(1);
+  float: right;
+  margin-top: 3px;
+  margin-left: 10px;
+  font-size: 20px;
+  padding: 15px;
+  color: $text-color-light;
+  border: 0;
+  border-radius: 3px;
+  background-color: $green;
+  text-align: center;
+  font-family: $head-font;
+  transition: 0.3s cubic-bezier(.25, .8, .25, 1);
+  cursor: pointer;
+
+  &:focus {
+    background-color: darken($green, 5%);
+    outline: 0;
+  }
+
+  &:hover {
+    @include shadow(2);
   }
 }
 
 .color-tile {
   @include shadow(1);
-  margin          : 0 15px;
-  display         : inline-block;
-  width           : 35px;
-  height          : 35px;
-  border-radius   : 4px;
+  margin: 0 15px;
+  display: inline-block;
+  width: 35px;
+  height: 35px;
+  border-radius: 4px;
   background-color: $accent-color;
-  transition      : .3s cubic-bezier(.25, .8, .25, 1);
+  transition: 0.3s cubic-bezier(.25, .8, .25, 1);
 
   &:hover {
     @include shadow(2);

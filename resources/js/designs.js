@@ -59,6 +59,14 @@ $(function() {
     });
   });
 
+  // TODO: this works for now but when I add more features i may need to cahe the lookups or change white to transparent
+  $("#clear-grid").click(function(){
+    if (confirm("This will erase all your work!\nAre you sure you want to erase the canvas?")){
+        $('td').css({background: "#ffffff"});
+    }
+  });
+
+
   $(document).on('dragstart', function(event) {
       // I had issues with dragging nonexistant things bugging out the mouseDown value. this code fixes that problem
       // by dissallowing dragging on the webpage, If I need dragging enabled in the future I'll fix it another way.
