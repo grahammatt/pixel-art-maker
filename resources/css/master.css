@@ -1,3 +1,10 @@
+/**
+ * A mixin which helps you to add depth to elements according to the Google Material Design spec:
+ * http://www.google.com/design/spec/layout/layout-principles.html#layout-principles-dimensionality
+ *
+ * Adapted from a LESS version at https://medium.com/@Florian/freebie-google-material-design-shadow-helper-2a0501295a2d
+ * Original Author: Florian Kutschera (@gefangenimnetz), Conceptboard GmbH (@conceptboardapp)
+ */
 body {
   color: #6c6c6c;
   background: #E0E0E0;
@@ -46,9 +53,12 @@ label {
   font-size: 40px;
 }
 
-table, td, tr {
+table,
+td,
+tr {
   border: 1px solid #808080;
   background: #fff;
+  box-sizing: border-box;
 }
 
 table {
