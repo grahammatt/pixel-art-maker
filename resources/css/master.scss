@@ -1,9 +1,9 @@
 $background: #E0E0E0;
 $white-background: #F5F5F5;
 $dark-background: #424242;
-$primary-color-dark: #0288D1;
 $primary-color: #FF5252;
-$primary-color-light: #B3E5FC;
+$primary-color-dark: darken($primary-color, 5%);
+$primary-color-light: lighten($primary-color, 5%);
 $accent-color: #03A9F4;
 $text-color-light: #FAFAFA;
 $text-color-dark: #6c6c6c;
@@ -11,6 +11,7 @@ $green: #64DB64;
 $orange: #FFA052;
 $body-font: 'Roboto', sans-serif;
 $head-font: 'Bungee', cursive;
+$primary-transition: 0.3s cubic-bezier(.25, .8, .25, 1);
 /**
  * A mixin which helps you to add depth to elements according to the Google Material Design spec:
  * http://www.google.com/design/spec/layout/layout-principles.html#layout-principles-dimensionality
@@ -48,19 +49,20 @@ header {
   margin-bottom: 20px;
   padding: 0.5em 0;
   background: $primary-color;
-}
 
-h1 {
-  margin: 0.1em;
-  color: $text-color-light;
-  font-family: $head-font;
-  font-size: 60px;
-  font-weight: normal;
+  h1 {
+    margin: 0.1em;
+    color: $text-color-light;
+    font-family: $head-font;
+    font-size: 60px;
+    font-weight: normal;
+  }
 }
 
 form {
   @include shadow(2);
   // TODO: figure out how to set the width to fit all on one line
+  //set up media queries
   max-width: 510px;
   margin: 0 auto;
   padding: 10px;
@@ -79,28 +81,35 @@ form {
   }
 }
 
-label {
+.color-tile {
+  @include shadow(1);
+  margin: 0 15px;
+  display: inline-block;
+  width: 35px;
+  height: 35px;
+  border-radius: 50px;
+  background-color: $accent-color;
+  transition: $primary-transition;
+
+  &:hover {
+    @include shadow(2);
+  }
+}
+
+.tool-button {
   display: inline-block;
   margin: 1em 0 0.25em;
   font-size: 40px;
 }
 
-table,
-td,
-tr {
-  border: 1px solid #808080;
-  background: #fff;
-  box-sizing: border-box;
-}
-
-table {
-  margin: 20px auto;
-  border-collapse: collapse;
-}
-
-td {
-  min-width: 20px;
-  height: 20px;
+.tile {
+  @include shadow(1);
+  font-size: 30px;
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  border-radius: 4px;
+  background-color: $white-background;
 }
 
 input {
@@ -124,15 +133,16 @@ input {
   &[type='radio'] {
     display: none;
   }
+
+  &:checked {
+    +label {
+      color: $text-color-light;
+      background-color: $orange;
+    }
+  }
 }
 
-input:checked+label {
-  color: $text-color-light;
-  background-color: $orange;
-}
-// TODO: two button classes shouldnt be necessary, figure out why you couldnt get bg color classes to work
-
-.blue-button {
+.button {
   @include shadow(1);
   float: right;
   margin-top: 3px;
@@ -142,69 +152,48 @@ input:checked+label {
   color: $text-color-light;
   border: 0;
   border-radius: 3px;
-  background-color: $accent-color;
   text-align: center;
   font-family: $head-font;
-  transition: 0.3s cubic-bezier(.25, .8, .25, 1);
+  transition: $primary-transition;
   cursor: pointer;
+
+  &:hover {
+    @include shadow(2);
+  }
+}
+
+.blue-button {
+  background-color: $accent-color;
 
   &:focus {
     background-color: darken($accent-color, 5%);
     outline: 0;
   }
-
-  &:hover {
-    @include shadow(2);
-  }
 }
 
 .green-button {
-  @include shadow(1);
-  float: right;
-  margin-top: 3px;
-  margin-left: 10px;
-  font-size: 20px;
-  padding: 15px;
-  color: $text-color-light;
-  border: 0;
-  border-radius: 3px;
   background-color: $green;
-  text-align: center;
-  font-family: $head-font;
-  transition: 0.3s cubic-bezier(.25, .8, .25, 1);
-  cursor: pointer;
 
   &:focus {
     background-color: darken($green, 5%);
     outline: 0;
   }
-
-  &:hover {
-    @include shadow(2);
-  }
 }
 
-.tile {
-  @include shadow(1);
-  font-size: 30px;
-  display: inline-block;
-  width: 40px;
-  height: 40px;
-  border-radius: 4px;
-  background-color: $white-background;
+table,
+td,
+tr {
+  border: 1px solid #808080;
+  background: #fff;
+  box-sizing: border-box;
 }
 
-.color-tile {
-  @include shadow(1);
-  margin: 0 15px;
-  display: inline-block;
-  width: 35px;
-  height: 35px;
-  border-radius: 50px;
-  background-color: $accent-color;
-  transition: 0.3s cubic-bezier(.25, .8, .25, 1);
+table {
+  margin: 20px auto;
+  border-collapse: collapse;
+}
 
-  &:hover {
-    @include shadow(2);
-  }
+td {
+  min-width: 20px;
+  height: 20px;
 }
