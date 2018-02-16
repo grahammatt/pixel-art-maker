@@ -5,7 +5,8 @@ const PIXEL_CANVAS = $("#pixel-canvas"), //Cache common DOM lookups
   SIZE_PICKER = $("#size-picker"),
   COLOR_PICK = $("#color-picker"),
   HEIGHT = $("#input-height"),
-  WIDTH = $("#input-width");
+  WIDTH = $("#input-width"),
+  PEN = $("#pen");
 
 let mouseDown = false, // Tracks status of mouse button
   bgDefault = "#ffffff",
@@ -42,7 +43,7 @@ function setGridHandler() { //function to set event listeners on the new grid
     }
   });
 
-  td.click(function() { //color while clicking a single cell
+  td.mousedown(function() { //color while clicking a single cell
     switch (tool()) {
       case "pen":
         $(this).css({
@@ -89,6 +90,8 @@ $(function() {
 
   COLOR_PICK.change(function(event) { //changes color value when input is changed
     colorChange(COLOR_PICK.val());
+    PEN.prop("checked", true);
+    //sets the active tool back to pen after the color picker is used
   });
 
   // TODO: this works for now but when I add more features i may need to cahe the lookups or change white to transparent

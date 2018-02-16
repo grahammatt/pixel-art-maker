@@ -28,19 +28,41 @@
     <input type="submit" class="button blue-button" value="Create Grid">
   </form>
 
-  <div id="tool-bar" class="tool-bar">
-    <div class="color-tile">
-      <input type="color" title="active color" id="color-picker" value="#03A9F4">
+  <div id="tool-bar" class="toolbar">
+      <div class="section">
+        <div class="color-tile">
+        <input type="color" title="active color" id="color-picker" value="#03A9F4">
+      </div>
+      <input type="radio" id="picker" class="right" name="tool" value="picker">
+      <label for="picker" title="color picker" class="tool-button tile right"><i class="fas fa-eye-dropper"></i></label>
+      <h3>color picker</h3>
     </div>
-    <input type="radio" id="picker" name="tool" value="picker">
-    <label for="picker" title="color picker" class="tool-button tile"><i class="fas fa-eye-dropper"></i></label>
+
     <span class="tool-divider"></span>
-    <input type="radio" id="pen" name="tool" value="pen" checked>
-    <label for="pen" title="pen" class="tool-button tile"><i class="fas fa-pencil-alt"></i></label>
-    <input type="radio" id="eraser" name="tool" value="eraser">
-    <label for="eraser" title="eraser" class="tool-button tile"><i class="fas fa-eraser"></i></label>
+
+    <div class="section">
+      <input type="radio" id="pen" name="tool" value="pen" checked>
+      <label for="pen" title="pen" class="tool-button tile"><i class="fas fa-pencil-alt"></i></label>
+      <input type="radio" id="eraser" name="tool" value="eraser">
+      <label for="eraser" title="eraser" class="tool-button tile"><i class="fas fa-eraser"></i></label>
+      <h3>tools</h3>
+    </div>
+    <span class="tool-divider"></span>
+
     <!-- <input type="radio" id="paint" name="tool" value="paint">
     <label for="paint"><i class="fas fa-tint"></i></label> -->
+    <!-- TODO: show lines -->
+    <div class="section">
+      <h3>grid lines</h3>
+    </div>
+
+    <div class="tool-divider"></div>
+
+    <!-- TODO: zoom -->
+    <div class="section">
+      <h3>zoom</h3>
+    </div>
+
   </div>
 
   <table id="pixel-canvas">
