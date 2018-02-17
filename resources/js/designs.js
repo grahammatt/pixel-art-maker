@@ -12,7 +12,7 @@ let mouseDown = false, // Tracks status of mouse button
   bgDefault = "#ffffff",
   color = COLOR_PICK.val(); //initialize input color values
 
-function tool(){
+function getTool(){
   return $('input[name=tool]:radio:checked').val();
 }
 
@@ -28,7 +28,7 @@ function setGridHandler() { //function to set event listeners on the new grid
 
   td.mouseover(function() { //color grid while dragging mouse
     if (mouseDown) {
-      switch (tool()) {
+      switch (getTool()) {
         case "pen":
           $(this).css({
             background: color
@@ -44,7 +44,7 @@ function setGridHandler() { //function to set event listeners on the new grid
   });
 
   td.mousedown(function() { //color while clicking a single cell
-    switch (tool()) {
+    switch (getTool()) {
       case "pen":
         $(this).css({
           background: color
@@ -70,6 +70,7 @@ function makeGrid() {
     gridWidth = WIDTH.val();
 
   for (let i = 0; i < gridHeight; i++) {
+    // TODO: PREPEND FAILS TO EXECUTE IN EDGE AND IE
     fragment.prepend(document.createElement('tr')); //prepend empty row to fragment
     let row = fragment.firstElementChild; //cache created row
     for (let j = 0; j < gridWidth; j++) {
@@ -116,6 +117,12 @@ $(function() {
     .on("mouseup", function() {
       //sets to false when mouse is released
       mouseDown = false;
+    });
+    $("#zoom-in").click(function(){
+
+    });
+    $("#zoom-out").click(function(){
+
     });
 
 });

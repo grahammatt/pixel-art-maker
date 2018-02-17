@@ -42,7 +42,7 @@
 
     <div class="section">
       <input type="radio" id="pen" name="tool" value="pen" checked>
-      <label for="pen" title="pen" class="tool-button tile"><i class="fas fa-pencil-alt"></i></label>
+      <label for="pen" title="pen" class="tool-button tile"><i class="fas fa-pencil-alt" ></i></label>
       <input type="radio" id="eraser" name="tool" value="eraser">
       <label for="eraser" title="eraser" class="tool-button tile"><i class="fas fa-eraser"></i></label>
       <h3>tools</h3>
@@ -53,6 +53,11 @@
     <label for="paint"><i class="fas fa-tint"></i></label> -->
     <!-- TODO: show lines -->
     <div class="section">
+      off
+      <label class="toggle">
+  <input type="checkbox">
+  <span class="toggle"></span>
+</label>on
       <h3>grid lines</h3>
     </div>
 
@@ -60,6 +65,8 @@
 
     <!-- TODO: zoom -->
     <div class="section">
+      <i id="zoom-out" class="fas fa-search-minus tile"></i>
+      <i id="zoom-in" class="fas fa-search-plus tile"></i>
       <h3>zoom</h3>
     </div>
 
