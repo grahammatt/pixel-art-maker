@@ -12,7 +12,7 @@ let mouseDown = false, // Tracks status of mouse button
   bgDefault = "#ffffff",
   color = COLOR_PICK.val(); //initialize input color values
 
-function getTool(){
+function getTool() {
   return $('input[name=tool]:radio:checked').val();
 }
 
@@ -68,17 +68,34 @@ function makeGrid() {
   let fragment = document.createDocumentFragment(),
     gridHeight = HEIGHT.val(),
     gridWidth = WIDTH.val();
-
-  for (let i = 0; i < gridHeight; i++) {
-    // TODO: PREPEND FAILS TO EXECUTE IN EDGE AND IE
-    fragment.prepend(document.createElement('tr')); //prepend empty row to fragment
-    let row = fragment.firstElementChild; //cache created row
-    for (let j = 0; j < gridWidth; j++) {
-      row.append(document.createElement('td')); //append cell to cached row
+  try {
+    for (let i = 0; i < gridHeight; i++) {
+      // TODO: PREPEND FAILS TO EXECUTE IN EDGE AND IE
+      fragment.prepend(document.createElement('tr')); //prepend empty row to fragment
+      let row = fragment.firstElementChild; //cache created row
+      for (let j = 0; j < gridWidth; j++) {
+        row.append(document.createElement('td')); //append cell to cached row
+      }
     }
+    PIXEL_CANVAS.append(fragment); //add the grid markup to the DOM
+  } catch (e) {
+    //fix for microsoft edge not fully supporting document fragments
+    let htmlGrid = [];
+    //storing the grid html in array to be pushed all at once
+
+    for (let i = 0; i < gridHeight; i++) {
+      htmlGrid.push("<tr>"); //add row to array
+      for (let j = 0; j < gridWidth; j++) {
+        htmlGrid.push("<td></td>"); //add cell
+      }
+      htmlGrid.push("</tr>"); //close row
+    }
+    PIXEL_CANVAS.append(htmlGrid); //add the grid markup to the DOM
+  } finally {
+
+    setGridHandler(); //set the event listners on the grid
   }
-  PIXEL_CANVAS.append(fragment); //add the grid markup to the DOM
-  setGridHandler(); //set the event listners on the grid
+
 }
 
 $(function() {
@@ -118,11 +135,11 @@ $(function() {
       //sets to false when mouse is released
       mouseDown = false;
     });
-    $("#zoom-in").click(function(){
+  $("#zoom-in").click(function() {
 
-    });
-    $("#zoom-out").click(function(){
+  });
+  $("#zoom-out").click(function() {
 
-    });
+  });
 
 });
