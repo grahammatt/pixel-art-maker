@@ -2,17 +2,14 @@ $background: #E0E0E0;
 $white-background: #F5F5F5;
 $dark-background: #424242;
 $primary-color: #FF5252;
-$primary-color-dark: darken($primary-color, 5%);
-$primary-color-light: lighten($primary-color, 5%);
 $accent-color: #03A9F4;
-$text-color-light: #FAFAFA;
-$text-color-dark: #6c6c6c;
 $green: #64DB64;
 $orange: #FFA052;
+$text-color-light: #FAFAFA;
+$text-color-dark: #6c6c6c;
 $body-font: 'Roboto', sans-serif;
 $head-font: 'Bungee', cursive;
 $primary-transition: 0.3s cubic-bezier(.25, .8, .25, 1);
-$color-button-size: 100px;
 @mixin shadow ($level) {
   /**
    * A mixin which helps you to add depth to elements according to the Google Material Design spec:
@@ -76,12 +73,10 @@ form {
 
     h2 {
       @include shadow(1);
-      font-size: 24px;
       color: $text-color-light;
       background-color: $dark-background;
-      font-family: $head-font;
+      font: normal 24px $head-font;
       margin: 0 0 10px;
-      font-weight: normal;
     }
   }
 }
@@ -98,30 +93,27 @@ form {
   width: auto;
   border-bottom-left-radius: 3px;
   border-bottom-right-radius: 3px;
-}
-// TODO: fix bug: color picker is a tad high
 
-.section {
-  display: inline-block;
+  .section {
+    display: inline-block;
 
-  h3 {
-    color: $dark-background;
-    background-color: $white-background;
-    font-family: $head-font;
-    font-size: 13px;
-    font-weight: normal;
-    padding: 2px 3px 0;
-    margin: 5px auto 0;
-    border-radius: 4px;
+    h3 {
+      color: $dark-background;
+      background-color: $white-background;
+      font: normal 13px $head-font;
+      padding: 2px 3px 0;
+      margin: 5px auto 0;
+      border-radius: 4px;
+    }
   }
-}
 
-.tool-divider {
-  display: inline-block;
-  width: 1px;
-  height: 48px;
-  background-color: rgba($text-color-light, .2);
-  margin: 0 6px;
+  .tool-divider {
+    display: inline-block;
+    width: 1px;
+    height: 48px;
+    background-color: rgba($text-color-light, .2);
+    margin: 0 6px;
+  }
 }
 
 .color-tile {
@@ -187,13 +179,12 @@ input {
   float: right;
   margin-top: 3px;
   margin-left: 10px;
-  font-size: 20px;
   padding: 15px;
   color: $text-color-light;
   border: 0;
   border-radius: 3px;
   text-align: center;
-  font-family: $head-font;
+  font: normal 20px $head-font;
   transition: $primary-transition;
   cursor: pointer;
 
