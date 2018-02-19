@@ -15,16 +15,14 @@ header {
    */
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
   margin-bottom: 20px;
-  padding: .5em 0;
+  padding: 0.5em 0;
   background: #FF5252;
 }
 
 header h1 {
-  margin: .1em;
+  margin: 0;
   color: #FAFAFA;
-  font-family: "Bungee", cursive;
-  font-size: 60px;
-  font-weight: normal;
+  font: normal 60px "Bungee", cursive;
 }
 
 form {
@@ -88,24 +86,6 @@ form .size-wrap h2 {
   border-bottom-right-radius: 3px;
 }
 
-.color-tile {
-  display: inline-block;
-  width: 100px;
-  margin: 0 10px 0 0;
-  height: 25px;
-  border-radius: 4px;
-  background-color: #03A9F4;
-  transition: 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-}
-
-.left {
-  float: left;
-}
-
-.right {
-  float: right;
-}
-
 .section {
   display: inline-block;
 }
@@ -127,6 +107,17 @@ form .size-wrap h2 {
   height: 48px;
   background-color: rgba(250, 250, 250, 0.2);
   margin: 0 6px;
+}
+
+.color-tile {
+  cursor: pointer;
+  min-width: 100px;
+  margin: 0 10px -5px 0;
+  display: inline-block;
+  height: 25px;
+  border-radius: 4px;
+  background-color: #03A9F4;
+  transition: 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
 .tile {
@@ -156,18 +147,13 @@ input[type='number'] {
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
   display: inline-block;
   width: 2.5em;
-  padding-left: .2em;
+  padding-left: 0.2em;
   border: 0;
   border-radius: 3px;
 }
 
 input[type='color'] {
-  width: 100px;
-  height: 25px;
-  opacity: 0;
-  border: 0;
-  cursor: pointer;
-  margin: 0 10px 0 0;
+  display: none;
 }
 
 input[type='radio'] {
