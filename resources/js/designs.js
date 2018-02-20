@@ -60,6 +60,7 @@ function setGridHandler() { //function to set event listeners on the new grid
         break;
     }
   });
+
 }
 
 function makeGrid() {
@@ -94,6 +95,8 @@ function makeGrid() {
   } finally {
 
     setGridHandler(); //set the event listners on the grid
+    // TODO: refactor
+    $("#on").prop("checked", true);
   }
 
 }
@@ -121,6 +124,20 @@ $(function() {
     }
   });
 
+  // TODO: refactor: cache td and whatnot
+  $("input[name='lines']").click(function() {
+    // Do something interesting here
+    if ($('input[name=lines]:radio:checked').val()) {
+      $('td').css({
+        border: "1px solid #808080"
+      });
+    } else {
+      $('td').css({
+        border: 0
+      });
+    }
+
+  });
 
   $(document).on('dragstart', function(event) {
       // I had issues with dragging nonexistant things bugging out the mouseDown value. this code fixes that problem
@@ -135,6 +152,8 @@ $(function() {
       //sets to false when mouse is released
       mouseDown = false;
     });
+
+
   $("#zoom-in").click(function() {
 
   });

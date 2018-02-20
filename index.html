@@ -61,11 +61,15 @@
 
     <!-- TODO: show lines -->
     <div class="section">
-      off
-      <label class="toggle">
-        <input type="checkbox">
-        <span class="toggle"></span>
-      </label>on
+      <input type="radio" id="off" name="lines" value="">
+      <label for="off" title="turn grid lines off" class="tile wider">
+        off
+      </label>
+
+      <input type="radio" id="on" name="lines" value="true" checked>
+      <label for="on" title="turn grid lines on" class="tile wider">
+        on
+      </label>
       <h3>grid lines</h3>
     </div>
 
