@@ -10,7 +10,9 @@ $text-color-dark: #6c6c6c;
 $body-font: 'Roboto', sans-serif;
 $head-font: 'Bungee', cursive;
 $primary-transition: 0.3s cubic-bezier(.25, .8, .25, 1);
+$test: 0;
 @mixin shadow ($level) {
+  //
   /**
    * A mixin which helps you to add depth to elements according to the Google Material Design spec:
    * http://www.google.com/design/spec/layout/layout-principles.html#layout-principles-dimensionality
