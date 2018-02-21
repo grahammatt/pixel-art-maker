@@ -10,7 +10,6 @@ $text-color-dark: #6c6c6c;
 $body-font: 'Roboto', sans-serif;
 $head-font: 'Bungee', cursive;
 $primary-transition: 0.3s cubic-bezier(.25, .8, .25, 1);
-$test: 0;
 @mixin shadow ($level) {
   //
   /**
@@ -53,7 +52,9 @@ header {
   h1 {
     margin: 0;
     color: $text-color-light;
-    font: normal 60px $head-font;
+    font-weight: normal;
+    font-size: 60px;
+    font-family: $head-font;
   }
 }
 
@@ -77,7 +78,9 @@ form {
       @include shadow(1);
       color: $text-color-light;
       background-color: $dark-background;
-      font: normal 24px $head-font;
+      font-weight: normal;
+      font-size: 24px;
+      font-family: $head-font;
       margin: 0 0 10px;
     }
   }
@@ -85,7 +88,9 @@ form {
 
 .toolbar {
   @include shadow(2);
-  font: normal 12px $head-font;
+  font-weight: normal;
+  font-size: 12px;
+  font-family: $head-font;
   color: $text-color-light;
   user-select: none;
   display: inline-block;
@@ -104,7 +109,9 @@ form {
     h3 {
       color: $dark-background;
       background-color: $white-background;
-      font: normal 13px $head-font;
+      font-weight: normal;
+      font-size: 13px;
+      font-family: $head-font;
       padding: 2px 3px 0;
       margin: 5px auto 0;
       border-radius: 4px;
@@ -137,6 +144,7 @@ form {
   display: inline-block;
   width: 25px;
   height: 25px;
+  line-height: 25px;
   border-radius: 4px;
   cursor: pointer;
   transition: $primary-transition;
@@ -192,7 +200,9 @@ input {
   border: 0;
   border-radius: 3px;
   text-align: center;
-  font: normal 20px $head-font;
+  font-weight: normal;
+  font-size: 20px;
+  font-family: $head-font;
   transition: $primary-transition;
   cursor: pointer;
 
