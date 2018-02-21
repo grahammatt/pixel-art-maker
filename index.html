@@ -18,11 +18,12 @@
     <h1>Pixel Art Maker</h1>
   </header>
 
+  <!-- Form for creating the grid canvas -->
   <form id="size-picker" clas="size-picker">
     <div class="size-wrap">
-      <h2>Canvas Size</h2> Height:
-      <input type="number" id="input-height" name="height" min="1" max="64" value="20"> Width:
-      <input type="number" id="input-width" name="width" min="1" max="64" value="20">
+      <h2>Canvas Size</h2>
+      Height: <input type="number" id="input-height" name="height" min="1" max="64" value="20">
+      Width: <input type="number" id="input-width" name="width" min="1" max="64" value="20">
     </div>
     <button id="clear-grid" class="button green-button">clear</button>
     <input type="submit" class="button blue-button" value="Create Grid">
@@ -40,9 +41,7 @@
       </label>
       <h3>color picker</h3>
     </div>
-
     <span class="tool-divider"></span>
-
     <div class="section">
       <input type="radio" id="pen" name="tool" value="pen" checked>
       <label for="pen" title="pen" class="tile">
@@ -56,38 +55,21 @@
 
       <h3>tools</h3>
     </div>
-
     <span class="tool-divider"></span>
-
-    <!-- TODO: show lines -->
     <div class="section">
       <input type="radio" id="off" name="lines" value="">
-      <label for="off" title="turn grid lines off" class="tile wider">
-        off
-      </label>
+      <label for="off" title="turn grid lines off" class="tile wider"> off </label>
 
       <input type="radio" id="on" name="lines" value="true" checked>
-      <label for="on" title="turn grid lines on" class="tile wider">
-        on
-      </label>
+      <label for="on" title="turn grid lines on" class="tile wider"> on </label>
+
       <h3>grid lines</h3>
     </div>
-
-    <!-- TODO: possibly implement zoom feature -->
-    <!-- <div class="tool-divider"></div>
-
-    <div class="section">
-      <i id="zoom-out" class="fas fa-search-minus tile"></i>
-      <i id="zoom-in" class="fas fa-search-plus tile"></i>
-      <h3>zoom</h3>
-    </div> -->
-
   </div>
 
-  <table id="pixel-canvas">
-  </table>
+<!-- grid is populated using javascript -->
+  <table id="pixel-canvas"></table>
 
-  <!-- TODO: posssibly add footer -->
   <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="resources/js/designs.js"></script>

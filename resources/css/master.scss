@@ -1,15 +1,15 @@
-$background: #E0E0E0;
-$white-background: #F5F5F5;
+$background: #e0e0e0;
+$white-background: #f5f5f5;
 $dark-background: #424242;
-$primary-color: #FF5252;
-$accent-color: #03A9F4;
-$green: #64DB64;
-$orange: #FFA052;
-$text-color-light: #FAFAFA;
+$primary-color: #ff5252;
+$accent-color: #03a9f4;
+$green: #64db64;
+$orange: #ffa052;
+$text-color-light: #fafafa;
 $text-color-dark: #6c6c6c;
-$body-font: 'Roboto', sans-serif;
-$head-font: 'Bungee', cursive;
-$primary-transition: 0.3s cubic-bezier(.25, .8, .25, 1);
+$body-font: "Roboto", sans-serif;
+$head-font: "Bungee", cursive;
+$primary-transition: 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
 @mixin shadow ($level) {
   //
   /**
@@ -37,23 +37,23 @@ $primary-transition: 0.3s cubic-bezier(.25, .8, .25, 1);
 }
 
 body {
-  color: $text-color-dark;
-  background: $background;
-  text-align: center;
+  color      : $text-color-dark;
+  background : $background;
+  text-align : center;
   font-family: $body-font;
 }
 
 header {
   @include shadow(1);
   margin-bottom: 20px;
-  padding: 0.5em 0;
-  background: $primary-color;
+  padding      : 0.5em 0;
+  background   : $primary-color;
 
   h1 {
-    margin: 0;
-    color: $text-color-light;
+    margin     : 0;
+    color      : $text-color-light;
     font-weight: normal;
-    font-size: 60px;
+    font-size  : 60px;
     font-family: $head-font;
   }
 }
@@ -62,13 +62,13 @@ form {
   @include shadow(3);
   // TODO: figure out how to set the width to fit all on one line
   //set up media queries
-  user-select: none;
-  max-width: 510px;
-  margin: 0 auto;
-  padding: 10px;
-  color: $text-color-dark;
-  overflow: hidden;
-  border-radius: 3px;
+  user-select     : none;
+  max-width       : 510px;
+  margin          : 0 auto;
+  padding         : 10px;
+  color           : $text-color-dark;
+  overflow        : hidden;
+  border-radius   : 3px;
   background-color: $white-background;
 
   .size-wrap {
@@ -76,78 +76,77 @@ form {
 
     h2 {
       @include shadow(1);
-      color: $text-color-light;
+      color           : $text-color-light;
       background-color: $dark-background;
-      font-weight: normal;
-      font-size: 24px;
-      font-family: $head-font;
-      margin: 0 0 10px;
+      font-weight     : normal;
+      font-size       : 24px;
+      font-family     : $head-font;
+      margin          : 0 0 10px;
     }
   }
 }
 
 .toolbar {
   @include shadow(2);
-  font-weight: normal;
-  font-size: 12px;
-  font-family: $head-font;
-  color: $text-color-light;
-  user-select: none;
-  display: inline-block;
-  text-align: center;
-  background-color: $dark-background;
-  padding: 3px 10px 5px;
-  margin: 0 auto;
-  height: auto;
-  width: auto;
-  border-bottom-left-radius: 3px;
+  font-weight               : normal;
+  font-size                 : 12px;
+  font-family               : $head-font;
+  color                     : $text-color-light;
+  user-select               : none;
+  display                   : inline-block;
+  text-align                : center;
+  background-color          : $dark-background;
+  padding                   : 3px 10px 5px;
+  margin                    : 0 auto;
+  height                    : auto;
+  width                     : auto;
+  border-bottom-left-radius : 3px;
   border-bottom-right-radius: 3px;
 
   .section {
     display: inline-block;
 
     h3 {
-      color: $dark-background;
+      color           : $dark-background;
       background-color: $white-background;
-      font-weight: normal;
-      font-size: 13px;
-      font-family: $head-font;
-      padding: 2px 3px 0;
-      margin: 5px auto 0;
-      border-radius: 4px;
+      font-weight     : normal;
+      font-size       : 13px;
+      font-family     : $head-font;
+      padding         : 2px 3px 0;
+      margin          : 5px auto 0;
+      border-radius   : 4px;
     }
   }
 
   .tool-divider {
-    display: inline-block;
-    width: 1px;
-    height: 48px;
-    background-color: rgba($text-color-light, .2);
-    margin: 0 6px;
+    display         : inline-block;
+    width           : 1px;
+    height          : 48px;
+    background-color: rgba($text-color-light, 0.2);
+    margin          : 0 6px;
   }
 }
 
 .color-tile {
-  cursor: pointer;
-  min-width: 100px;
-  margin: 0 10px -5px 0;
-  display: inline-block;
-  height: 25px;
-  border-radius: 4px;
+  cursor          : pointer;
+  min-width       : 100px;
+  margin          : 0 10px -5px 0;
+  display         : inline-block;
+  height          : 25px;
+  border-radius   : 4px;
   background-color: $accent-color;
-  transition: $primary-transition;
+  transition      : $primary-transition;
 }
 
 .tile {
-  margin: 0;
-  font-size: 20px;
-  display: inline-block;
-  width: 25px;
-  height: 25px;
-  line-height: 25px;
+  margin       : 0;
+  font-size    : 20px;
+  display      : inline-block;
+  width        : 25px;
+  line-height  : 25px;
   border-radius: 4px;
-  cursor: pointer;
-  transition: $primary-transition;
+  cursor       : pointer;
+  transition   : $primary-transition;
 
   &:hover {
     color: lighten($orange, 5%);
@@ -155,32 +154,32 @@ form {
 }
 
 .wider {
-  width: 44px;
+  width    : 44px;
   font-size: 18px;
 }
 
 input {
-  &[type='number'] {
+  &[type="number"] {
     @include shadow(1);
-    display: inline-block;
-    width: 2.5em;
-    padding-left: 0.2em;
-    border: 0;
+    display      : inline-block;
+    width        : 2.5em;
+    padding-left : 0.2em;
+    border       : 0;
     border-radius: 3px;
   }
 
-  &[type='color'] {
+  &[type="color"] {
     display: none;
   }
 
-  &[type='radio'] {
+  &[type="radio"] {
     display: none;
   }
 
   &:checked {
     +label {
-      box-shadow: inset 0 0 2px darken($orange, 40%);
-      color: $dark-background;
+      box-shadow      : inset 0 0 2px darken($orange, 40%);
+      color           : $dark-background;
       background-color: $orange;
 
       &:hover {
@@ -192,19 +191,19 @@ input {
 
 .button {
   @include shadow(1);
-  float: right;
-  margin-top: 3px;
-  margin-left: 10px;
-  padding: 15px;
-  color: $text-color-light;
-  border: 0;
+  float        : right;
+  margin-top   : 3px;
+  margin-left  : 10px;
+  padding      : 15px;
+  color        : $text-color-light;
+  border       : 0;
   border-radius: 3px;
-  text-align: center;
-  font-weight: normal;
-  font-size: 20px;
-  font-family: $head-font;
-  transition: $primary-transition;
-  cursor: pointer;
+  text-align   : center;
+  font-weight  : normal;
+  font-size    : 20px;
+  font-family  : $head-font;
+  transition   : $primary-transition;
+  cursor       : pointer;
 
   &:hover {
     @include shadow(2);
@@ -216,7 +215,7 @@ input {
 
   &:focus {
     background-color: darken($accent-color, 5%);
-    outline: 0;
+    outline         : 0;
   }
 }
 
@@ -225,7 +224,7 @@ input {
 
   &:focus {
     background-color: darken($green, 5%);
-    outline: 0;
+    outline         : 0;
   }
 }
 
@@ -236,13 +235,13 @@ tr {
 }
 
 table {
-  margin: 20px auto;
+  margin         : 20px auto;
   border-collapse: collapse;
 }
 
 td {
+  border    : 1px solid #808080;
   background: #fff;
-  border: 1px solid #808080;
-  min-width: 20px;
-  height: 20px;
+  min-width : 20px;
+  height    : 20px;
 }

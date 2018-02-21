@@ -1,6 +1,6 @@
 body {
   color: #6c6c6c;
-  background: #E0E0E0;
+  background: #e0e0e0;
   text-align: center;
   font-family: "Roboto", sans-serif;
 }
@@ -16,12 +16,12 @@ header {
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
   margin-bottom: 20px;
   padding: 0.5em 0;
-  background: #FF5252;
+  background: #ff5252;
 }
 
 header h1 {
   margin: 0;
-  color: #FAFAFA;
+  color: #fafafa;
   font-weight: normal;
   font-size: 60px;
   font-family: "Bungee", cursive;
@@ -43,7 +43,7 @@ form {
   color: #6c6c6c;
   overflow: hidden;
   border-radius: 3px;
-  background-color: #F5F5F5;
+  background-color: #f5f5f5;
 }
 
 form .size-wrap {
@@ -59,7 +59,7 @@ form .size-wrap h2 {
    * Original Author: Florian Kutschera (@gefangenimnetz), Conceptboard GmbH (@conceptboardapp)
    */
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
-  color: #FAFAFA;
+  color: #fafafa;
   background-color: #424242;
   font-weight: normal;
   font-size: 24px;
@@ -79,7 +79,7 @@ form .size-wrap h2 {
   font-weight: normal;
   font-size: 12px;
   font-family: "Bungee", cursive;
-  color: #FAFAFA;
+  color: #fafafa;
   user-select: none;
   display: inline-block;
   text-align: center;
@@ -98,7 +98,7 @@ form .size-wrap h2 {
 
 .toolbar .section h3 {
   color: #424242;
-  background-color: #F5F5F5;
+  background-color: #f5f5f5;
   font-weight: normal;
   font-size: 13px;
   font-family: "Bungee", cursive;
@@ -122,7 +122,7 @@ form .size-wrap h2 {
   display: inline-block;
   height: 25px;
   border-radius: 4px;
-  background-color: #03A9F4;
+  background-color: #03a9f4;
   transition: 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
@@ -131,7 +131,6 @@ form .size-wrap h2 {
   font-size: 20px;
   display: inline-block;
   width: 25px;
-  height: 25px;
   line-height: 25px;
   border-radius: 4px;
   cursor: pointer;
@@ -147,7 +146,7 @@ form .size-wrap h2 {
   font-size: 18px;
 }
 
-input[type='number'] {
+input[type="number"] {
   /**
    * A mixin which helps you to add depth to elements according to the Google Material Design spec:
    * http://www.google.com/design/spec/layout/layout-principles.html#layout-principles-dimensionality
@@ -163,18 +162,18 @@ input[type='number'] {
   border-radius: 3px;
 }
 
-input[type='color'] {
+input[type="color"] {
   display: none;
 }
 
-input[type='radio'] {
+input[type="radio"] {
   display: none;
 }
 
 input:checked + label {
   box-shadow: inset 0 0 2px #853c00;
   color: #424242;
-  background-color: #FFA052;
+  background-color: #ffa052;
 }
 
 input:checked + label:hover {
@@ -194,7 +193,7 @@ input:checked + label:hover {
   margin-top: 3px;
   margin-left: 10px;
   padding: 15px;
-  color: #FAFAFA;
+  color: #fafafa;
   border: 0;
   border-radius: 3px;
   text-align: center;
@@ -217,7 +216,7 @@ input:checked + label:hover {
 }
 
 .blue-button {
-  background-color: #03A9F4;
+  background-color: #03a9f4;
 }
 
 .blue-button:focus {
@@ -226,7 +225,7 @@ input:checked + label:hover {
 }
 
 .green-button {
-  background-color: #64DB64;
+  background-color: #64db64;
 }
 
 .green-button:focus {
@@ -246,8 +245,8 @@ table {
 }
 
 td {
-  background: #fff;
   border: 1px solid #808080;
+  background: #fff;
   min-width: 20px;
   height: 20px;
 }
