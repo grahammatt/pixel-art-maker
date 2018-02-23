@@ -9,15 +9,17 @@ $text-color-light: #fafafa;
 $text-color-dark: #6c6c6c;
 $body-font: "Roboto", sans-serif;
 $head-font: "Bungee", cursive;
-$primary-transition: 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-@mixin font-main($size: false, $colour: false) {
-  font-family: "Bungee", cursive;
+$primary-transition: 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); /*
+ the short form 'font:' declaration was cauing issues with cross-browser compatability so it isn't used
+ */
+@mixin font-main($size: false, $color: false) {
+  font-family: $head-font;
   font-weight: normal;
   @if $size {
     font-size: $size;
   }
-  @if $colour {
-    color: $colour;
+  @if $color {
+    color: $color;
   }
 }
 //A mixin which helps you to add depth to elements according to the Google Material Design spec:
@@ -41,29 +43,36 @@ $primary-transition: 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
     box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22);
   }
 }
-/* the short form 'font:' declaration was cauing issues with cross-browser compatability so it isn't used */
 
 body {
   color      : $text-color-dark;
   background : $background;
   text-align : center;
   font-family: $body-font;
+  min-width  : 340px;
 }
 
 header {
+  // TODO: keep header from scrolling sideways
   @include shadow(1);
   margin-bottom: 20px;
-  padding      : 0.5em 0;
   background   : $primary-color;
 
   h1 {
+    @media screen and (max-width: 600px) {
+      font-size: 30px;
+    }
     @include font-main(60px, $text-color-light);
-    margin: 0;
+    margin    : 0;
+    transition: 0.1s;
   }
 }
 
 form {
   @include shadow(3);
+  @media screen and (max-width: 600px) {
+    width: 360px;
+  }
   max-width       : 510px;
   margin          : 0 auto;
   padding         : 10px;
@@ -186,9 +195,23 @@ input {
   }
 }
 
+.button-wrap {
+  float: right;
+  @media screen and (max-width: 600px) {
+    float  : none;
+    display: block;
+    margin : 10px auto 0;
+  }
+}
+
 .button {
   @include shadow(1);
   @include font-main(20px, $text-color-light);
+  @media screen and (max-width: 600px) {
+    display: inline-block;
+    float  : none;
+    margin : 0 5px;
+  }
   float        : right;
   margin-top   : 3px;
   margin-left  : 10px;
