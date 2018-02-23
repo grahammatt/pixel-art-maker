@@ -9,7 +9,18 @@ $text-color-light: #fafafa;
 $text-color-dark: #6c6c6c;
 $body-font: "Roboto", sans-serif;
 $head-font: "Bungee", cursive;
-$primary-transition: 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); //A mixin which helps you to add depth to elements according to the Google Material Design spec:
+$primary-transition: 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+@mixin font-main($size: false, $colour: false) {
+  font-family: "Bungee", cursive;
+  font-weight: normal;
+  @if $size {
+    font-size: $size;
+  }
+  @if $colour {
+    color: $colour;
+  }
+}
+//A mixin which helps you to add depth to elements according to the Google Material Design spec:
 //http://www.google.com/design/spec/layout/layout-principles.html#layout-principles-dimensionality
 //Adapted from a LESS version at https://medium.com/@Florian/freebie-google-material-design-shadow-helper-2a0501295a2d
 //Original Author: Florian Kutschera (@gefangenimnetz), Conceptboard GmbH (@conceptboardapp)
@@ -46,11 +57,8 @@ header {
   background   : $primary-color;
 
   h1 {
-    margin     : 0;
-    color      : $text-color-light;
-    font-family: $head-font;
-    font-size  : 60px;
-    font-weight: normal;
+    @include font-main(60px, $text-color-light);
+    margin: 0;
   }
 }
 
@@ -70,31 +78,25 @@ form {
 
     h2 {
       @include shadow(1);
+      @include font-main(24px, $text-color-light);
       margin          : 0 0 10px;
-      color           : $text-color-light;
       background-color: $dark-background;
-      font-family     : $head-font;
-      font-size       : 24px;
-      font-weight     : normal;
     }
   }
 }
 
 .toolbar {
   @include shadow(2);
+  @include font-main(12px, $text-color-light);
   display                   : inline-block;
   width                     : auto;
   height                    : auto;
   margin                    : 0 auto;
   padding                   : 3px 10px 5px;
-  color                     : $text-color-light;
   border-bottom-right-radius: 3px;
   border-bottom-left-radius : 3px;
   background-color          : $dark-background;
   text-align                : center;
-  font-family               : $head-font;
-  font-size                 : 12px;
-  font-weight               : normal;
   /* being ocd about the text selection cursor appearing here */
   user-select               : none;
 
@@ -102,14 +104,11 @@ form {
     display: inline-block;
 
     h3 {
+      @include font-main(13px, $dark-background);
       margin          : 5px auto 0;
       padding         : 2px 3px 0;
-      color           : $dark-background;
       border-radius   : 4px;
       background-color: $white-background;
-      font-family     : $head-font;
-      font-size       : 13px;
-      font-weight     : normal;
     }
   }
 
@@ -189,17 +188,14 @@ input {
 
 .button {
   @include shadow(1);
+  @include font-main(20px, $text-color-light);
   float        : right;
   margin-top   : 3px;
   margin-left  : 10px;
   padding      : 15px;
-  color        : $text-color-light;
   border       : 0;
   border-radius: 3px;
   text-align   : center;
-  font-family  : $head-font;
-  font-size    : 20px;
-  font-weight  : normal;
   transition   : $primary-transition;
   cursor       : pointer;
 
