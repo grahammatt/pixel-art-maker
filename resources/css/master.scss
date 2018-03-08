@@ -45,11 +45,18 @@ $primary-transition: 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); /*
 }
 
 body {
-  color      : $text-color-dark;
-  background : $background;
-  text-align : center;
-  font-family: $body-font;
-  min-width  : 340px;
+  color         : $text-color-dark;
+  background    : $background;
+  text-align    : center;
+  font-family   : $body-font;
+  display       : flex;
+  flex-direction: column;
+  min-height    : 100vh;
+  min-width     : 340px;
+}
+
+main {
+  flex: 1;
 }
 
 header {
@@ -65,6 +72,32 @@ header {
     @include font-main(60px, $text-color-light);
     margin    : 0;
     transition: 0.1s;
+  }
+}
+
+footer {
+  height         : 80px;
+  background     : $dark-background;
+  display        : flex;
+  align-items    : center;
+  justify-content: space-around;
+  flex-wrap      : wrap-reverse;
+  color          : darken($background, 10%);
+
+  a {
+    font-weight    : 300;
+    text-decoration: none;
+    color          : inherit;
+    transition     : 0.15s;
+    margin         : 5px;
+
+    &:hover {
+      color: $text-color-light;
+    }
+  }
+
+  .git-link {
+    font-size: 22px;
   }
 }
 

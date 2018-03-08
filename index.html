@@ -7,70 +7,73 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
   <title>Pixel Art Maker!</title>
-  <link href="https://fonts.googleapis.com/css?family=Bungee|Roboto:400,700" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Bungee|Roboto:300,400" rel="stylesheet">
   <link rel="stylesheet" href="resources/css/normalize.css">
   <link rel="stylesheet" href="resources/css/master.css">
   <link rel="shortcut icon" href="resources/graphics/favicon.ico">
 </head>
 
-<body>
+<body class="flex">
   <header>
     <h1>Pixel Art Maker</h1>
   </header>
+  <main>
+    <!-- Form for creating the grid canvas -->
+    <form id="size-picker" clas="size-picker">
+      <div class="size-wrap">
+        <h2>Canvas Size</h2> Height: <input type="number" id="input-height" name="height" min="1" max="64" value="20"> Width: <input type="number" id="input-width" name="width" min="1" max="64" value="20">
+      </div>
+      <div class="button-wrap">
+        <button id="clear-grid" class="button green-button">clear</button>
+        <input type="submit" class="button blue-button" value="Create Grid">
+      </div>
+    </form>
 
-  <!-- Form for creating the grid canvas -->
-  <form id="size-picker" clas="size-picker">
-    <div class="size-wrap">
-      <h2>Canvas Size</h2>
-      Height: <input type="number" id="input-height" name="height" min="1" max="64" value="20">
-      Width: <input type="number" id="input-width" name="width" min="1" max="64" value="20">
+    <div id="tool-bar" class="toolbar">
+      <div class="section">
+        <label class="color-tile" for="color-picker">
+          <input type="color" title="active color" id="color-picker" value="#03A9F4">
+        </label>
+
+        <input type="radio" id="picker" name="tool" value="picker">
+        <label for="picker" title="color picker" class="tile">
+          <i class="fas fa-eye-dropper"></i>
+        </label>
+        <h3>color picker</h3>
+      </div>
+      <span class="tool-divider"></span>
+      <div class="section">
+        <input type="radio" id="pen" name="tool" value="pen" checked>
+        <label for="pen" title="pen" class="tile">
+          <i class="fas fa-pencil-alt" ></i>
+        </label>
+
+        <input type="radio" id="eraser" name="tool" value="eraser">
+        <label for="eraser" title="eraser" class="tile">
+          <i class="fas fa-eraser"></i>
+        </label>
+
+        <h3>tools</h3>
+      </div>
+      <span class="tool-divider"></span>
+      <div class="section">
+        <input type="radio" id="off" name="lines" value="">
+        <label for="off" title="turn grid lines off" class="tile wider"> off </label>
+
+        <input type="radio" id="on" name="lines" value="true" checked>
+        <label for="on" title="turn grid lines on" class="tile wider"> on </label>
+
+        <h3>grid lines</h3>
+      </div>
     </div>
-    <div class="button-wrap">
-      <button id="clear-grid" class="button green-button">clear</button>
-      <input type="submit" class="button blue-button" value="Create Grid">
-    </div>
-  </form>
 
-  <div id="tool-bar" class="toolbar">
-    <div class="section">
-      <label class="color-tile" for="color-picker">
-        <input type="color" title="active color" id="color-picker" value="#03A9F4">
-      </label>
-
-      <input type="radio" id="picker" name="tool" value="picker">
-      <label for="picker" title="color picker" class="tile">
-        <i class="fas fa-eye-dropper"></i>
-      </label>
-      <h3>color picker</h3>
-    </div>
-    <span class="tool-divider"></span>
-    <div class="section">
-      <input type="radio" id="pen" name="tool" value="pen" checked>
-      <label for="pen" title="pen" class="tile">
-        <i class="fas fa-pencil-alt" ></i>
-      </label>
-
-      <input type="radio" id="eraser" name="tool" value="eraser">
-      <label for="eraser" title="eraser" class="tile">
-        <i class="fas fa-eraser"></i>
-      </label>
-
-      <h3>tools</h3>
-    </div>
-    <span class="tool-divider"></span>
-    <div class="section">
-      <input type="radio" id="off" name="lines" value="">
-      <label for="off" title="turn grid lines off" class="tile wider"> off </label>
-
-      <input type="radio" id="on" name="lines" value="true" checked>
-      <label for="on" title="turn grid lines on" class="tile wider"> on </label>
-
-      <h3>grid lines</h3>
-    </div>
-  </div>
-
-<!-- grid is populated using javascript -->
-  <table id="pixel-canvas"></table>
+    <!-- grid is populated using javascript -->
+    <table id="pixel-canvas"></table>
+  </main>
+  <footer>
+    <a href="https://grahammatt.github.io"><i class="far fa-copyright"></i> 2018 Matthew Graham</a>
+    <a href="https://github.com/grahammatt/pixel-art-maker" class="git-link">View on GitHub <i class="fab fa-github"></i></a>
+  </footer>
 
   <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
