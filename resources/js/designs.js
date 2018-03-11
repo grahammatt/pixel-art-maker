@@ -26,7 +26,27 @@ function colorChange(newColor) {
 function setGridHandler() { //function to set event listeners on the new grid
   const td = $("#pixel-canvas td");
   //switches used to determine which operation to do based on the current tool
-  td.mouseover(function() { //operate on grid while dragging mouse
+
+  PIXEL_CANVAS.on('touchmove', function(event) { //Touch controls!!
+    let touch = event.touches[0]; //get position touched
+    let element = document.elementFromPoint(touch.clientX, touch.clientY);//get element at position
+    if (element.tagName === "TD") {  //we only want to modify table cells
+      switch (getTool()) {
+        case "pen":
+          $(element).css({
+            background: color
+          });
+          break;
+        case "eraser":
+          $(element).css({
+            background: bgDefault
+          });
+          break;
+      }
+    }
+
+  });
+  td.on('mouseover', function() { //operate on grid while dragging mouse
     if (mouseDown) {
       switch (getTool()) {
         case "pen":
@@ -43,7 +63,7 @@ function setGridHandler() { //function to set event listeners on the new grid
     }
   });
 
-  td.mousedown(function() { //operate on grid while clicking a single cell
+  td.on('mousedown', function(e) { //operate on grid while clicking a single cell
     switch (getTool()) {
       case "pen":
         $(this).css({
@@ -145,11 +165,11 @@ $(function() {
       //preventDefault caused other unexpected issues and this doesn't
       event.preventDefault();
     })
-    .mousedown(function() {
+    .on('mousedown', function() {
       //sets to true when mouse is held down
       mouseDown = true;
     })
-    .mouseup(function() {
+    .on('mouseup', function() {
       //sets to false when mouse is released
       mouseDown = false;
     });

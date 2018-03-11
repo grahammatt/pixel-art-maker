@@ -260,6 +260,12 @@ tr {
   box-sizing: border-box;
 }
 
+table:hover,
+td:hover,
+tr:hover {
+  cursor: pointer;
+}
+
 table {
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
   margin: 20px auto;
@@ -271,4 +277,8 @@ td {
   height: 20px;
   border: 1px solid #808080;
   background: #fff;
+}
+
+td:hover {
+  box-shadow: inset 0 0 4px #03a9f4;
 }

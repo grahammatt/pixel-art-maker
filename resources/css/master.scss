@@ -9,7 +9,8 @@ $text-color-light: #fafafa;
 $text-color-dark: #6c6c6c;
 $body-font: "Roboto", sans-serif;
 $head-font: "Bungee", cursive;
-$primary-transition: 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); /*
+$primary-transition: 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+/*
  the short form 'font:' declaration was cauing issues with cross-browser compatability so it isn't used
  */
 @mixin font-main($size: false, $color: false) {
@@ -282,6 +283,10 @@ table,
 td,
 tr {
   box-sizing: border-box;
+
+  &:hover {
+    cursor: pointer;
+  }
 }
 
 table {
@@ -295,4 +300,8 @@ td {
   height    : 20px;
   border    : 1px solid #808080;
   background: #fff;
+
+  &:hover {
+    box-shadow: inset 0 0 4px $accent-color;
+  }
 }
