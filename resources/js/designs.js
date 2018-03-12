@@ -44,6 +44,7 @@ function setGridHandler() { //function to set event listeners on the new grid
           break;
       }
     }
+    preventDefault();
 
   });
   td.on('mouseover', function() { //operate on grid while dragging mouse
