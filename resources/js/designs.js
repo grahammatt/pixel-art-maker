@@ -1,6 +1,5 @@
 /* jshint esversion: 6 */
-// TODO: fix code to match styleguide
-// TODO: fade the hover inset
+
 const PIXEL_CANVAS = $("#pixel-canvas"), //Cache common DOM lookups
   SIZE_PICKER = $("#size-picker"),
   COLOR_PICK = $("#color-picker"),
@@ -20,8 +19,8 @@ function setGridHandler() { //function to set event listeners on the new grid
   const td = $("#pixel-canvas td");
   //switches used to determine which operation to do based on the current tool
 
-  PIXEL_CANVAS.on('touchmove', function(event) { //Touch controls!!
-    event.preventDefault();
+  PIXEL_CANVAS.on('touchmove', function(event) { //Touch controls
+    event.preventDefault(); //prevent scrolling while dragging on the grid
     let touch = event.touches[0]; //get position touched
     let element = document.elementFromPoint(touch.clientX, touch.clientY); //get element at position
     if (element.tagName === "TD") { //we only want to modify table cells
@@ -72,7 +71,7 @@ function setGridHandler() { //function to set event listeners on the new grid
         break;
       case "picker":
         color = $(this).css("backgroundColor");
-        COLOR_PICK.spectrum("set", color);
+        COLOR_PICK.spectrum("set", color);   //sets the cuolor picker to the selected cells color
         break;
     }
   });
@@ -125,7 +124,7 @@ $(function() {
     makeGrid();
   });
 
-  COLOR_PICK.spectrum({
+  COLOR_PICK.spectrum({  //uses spectrom color picker library
     showPalette: true,
     showButtons: true,
     maxSelectionSize: 12,
@@ -136,10 +135,11 @@ $(function() {
       //sets the active tool back to pen after the color picker is used
     },
     move: function(newColor) {
-      color = newColor;
+      color = newColor;  //sets global variable whenever the picker is modified
     }
 
   });
+
   $("#clear-grid").click(function() {
     //sets a grid clearing function to be called when the button is pressed
     if (confirm("This will erase all your work!\nAre you sure you want to erase the canvas?")) {
@@ -152,7 +152,7 @@ $(function() {
   });
 
   $("input[name='lines']").click(function() {
-    //this listens for ghanges to the grid line option
+    //this listens for changes to the grid line option
     //the values of each radio input were set to falsy and trusy to make this work nicely
     if ($("input[name=lines]:radio:checked").val()) {
       $("td").css({
@@ -165,7 +165,6 @@ $(function() {
     }
 
   });
-
   $(document).on("dragstart", function(event) {
       // I had issues with dragging nonexistant things bugging out the mouseDown value. this code fixes that problem
       // by dissallowing dragging on the webpage, If I need dragging enabled in the future I'll fix it another way.
@@ -180,5 +179,7 @@ $(function() {
       //sets to false when mouse is released
       mouseDown = false;
     });
+
     COLOR_PICK.spectrum("set", color);
+    //this along with other minor changes fixes a bug with spectrum in chrome where the first color chosen wouldn't work unless it was a pallete color. bug didnt exist in other browsers.
 });
