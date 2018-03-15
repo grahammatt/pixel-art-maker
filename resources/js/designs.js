@@ -130,6 +130,7 @@ $(function() {
     showButtons: true,
     maxSelectionSize: 12,
     hideAfterPaletteSelect: true,
+    showInitial: true,
     show: function(newColor) {
       PEN.prop("checked", true);
       //sets the active tool back to pen after the color picker is used

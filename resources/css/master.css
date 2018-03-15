@@ -146,10 +146,6 @@ form .size-wrap h2 {
   background-color: rgba(250, 250, 250, 0.2);
 }
 
-.color-tile {
-  transition: 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-}
-
 .tile {
   display: inline-block;
   width: 25px;
@@ -240,11 +236,6 @@ table,
 td,
 tr {
   box-sizing: border-box;
-}
-
-table:hover,
-td:hover,
-tr:hover {
   cursor: pointer;
 }
 
@@ -259,8 +250,4 @@ td {
   height: 20px;
   border: 1px solid #808080;
   background: #fff;
-}
-
-td:hover {
-  box-shadow: inset 0 0 2px 1px #03a9f4;
 }
