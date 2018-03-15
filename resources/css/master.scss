@@ -63,12 +63,15 @@ main {
 header {
   // TODO: keep header from scrolling sideways
   @include shadow(1);
+  @media screen and (max-width: 600px) {
+    margin-bottom: 0;
+  }
   margin-bottom: 20px;
   background   : $primary-color;
 
   h1 {
     @media screen and (max-width: 600px) {
-      font-size: 30px;
+      font-size: 28px;
     }
     @include font-main(60px, $text-color-light);
     margin    : 0;
@@ -77,13 +80,13 @@ header {
 }
 
 footer {
-  height         : 80px;
   background     : $dark-background;
   display        : flex;
   align-items    : center;
   justify-content: space-around;
   flex-wrap      : wrap-reverse;
   color          : darken($background, 10%);
+  padding        : 15px 0;
 
   a {
     font-weight    : 300;
@@ -105,19 +108,22 @@ footer {
 form {
   @include shadow(3);
   @media screen and (max-width: 600px) {
-    width: 360px;
+    border-top-right-radius: 0;
+    border-top-left-radius : 0;
   }
-  max-width       : 510px;
+  display         : inline-flex;
+  align-items     : center;
+  align-content   : space-between;
+  justify-content : center;
   margin          : 0 auto;
   padding         : 10px;
   color           : $text-color-dark;
-  overflow        : hidden;
   border-radius   : 3px;
   background-color: $white-background;
   user-select     : none;
 
   .size-wrap {
-    display: inline-block;
+    margin: 0 10px;
 
     h2 {
       @include shadow(1);
@@ -131,7 +137,7 @@ form {
 .toolbar {
   @include shadow(2);
   @include font-main(12px, $text-color-light);
-  display                   : inline-block;
+  display                   : inline-flex;
   width                     : auto;
   height                    : auto;
   margin                    : 0 auto;
@@ -166,15 +172,7 @@ form {
 }
 
 .color-tile {
-  //button for the color selector
-  display         : inline-block;
-  min-width       : 100px;
-  height          : 25px;
-  margin          : 0 10px -5px 0;
-  border-radius   : 4px;
-  background-color: $accent-color;
-  transition      : $primary-transition;
-  cursor          : pointer;
+  transition: $primary-transition;
 }
 
 .tile {
@@ -201,15 +199,10 @@ form {
 input {
   &[type="number"] {
     @include shadow(1);
-    display      : inline-block;
-    width        : 2.5em;
+    width        : 2.2em;
     padding-left : 0.2em;
     border       : 0;
     border-radius: 3px;
-  }
-
-  &[type="color"] {
-    display: none;
   }
 
   &[type="radio"] {
@@ -229,26 +222,14 @@ input {
   }
 }
 
-.button-wrap {
-  float: right;
-  @media screen and (max-width: 600px) {
-    float  : none;
-    display: block;
-    margin : 10px auto 0;
-  }
-}
-
 .button {
   @include shadow(1);
   @include font-main(20px, $text-color-light);
-  @media screen and (max-width: 600px) {
-    display: inline-block;
-    float  : none;
-    margin : 0 5px;
+  @media screen and (max-width: 505px) {
+    font-size: 14px;
+    padding  : 20px 3px;
   }
-  float        : right;
-  margin-top   : 3px;
-  margin-left  : 10px;
+  margin       : 0;
   padding      : 15px;
   border       : 0;
   border-radius: 3px;

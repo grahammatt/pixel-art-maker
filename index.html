@@ -10,7 +10,9 @@
   <link href="https://fonts.googleapis.com/css?family=Bungee|Roboto:300,400" rel="stylesheet">
   <link rel="stylesheet" href="resources/css/normalize.css">
   <link rel="stylesheet" href="resources/css/master.css">
+  <link rel="stylesheet" href="resources/css/spectrum.css">
   <link rel="shortcut icon" href="resources/graphics/favicon.ico">
+
 </head>
 
 <body>
@@ -20,20 +22,22 @@
   <main>
     <!-- Form for creating the grid canvas -->
     <form id="size-picker" class="size-picker">
+      <button id="clear-grid" class="button green-button">clear</button>
       <div class="size-wrap">
-        <h2>Canvas Size</h2> Height: <input type="number" id="input-height" name="height" min="1" max="64" value="20"> Width: <input type="number" id="input-width" name="width" min="1" max="64" value="20">
+        <h2>Canvas Size</h2> Height: <input type="number" id="input-height" name="height" min="1" max="64" value="16"> Width: <input type="number" id="input-width" name="width" min="1" max="64" value="16">
       </div>
-      <div class="button-wrap">
-        <button id="clear-grid" class="button green-button">clear</button>
-        <input type="submit" class="button blue-button" value="Create Grid">
-      </div>
+      <div class = "button-wrap">
+      <input type="submit" class="button blue-button" value="Build">
+    </div>
     </form>
+<div class="break">
 
+</div>
     <div id="tool-bar" class="toolbar">
       <div class="section">
-        <label class="color-tile" for="color-picker">
-          <input type="color" title="active color" id="color-picker" value="#03A9F4">
-        </label>
+          <input type="text" title="active color" id="color-picker" class="color-tile">
+
+
 
         <input type="radio" id="picker" name="tool" value="picker">
         <label for="picker" title="color picker" class="tile">
@@ -77,7 +81,9 @@
 
   <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="resources/js/spectrum.js"></script>
   <script src="resources/js/designs.js"></script>
+
 </body>
 
 </html>

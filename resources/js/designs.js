@@ -1,6 +1,6 @@
 /* jshint esversion: 6 */
 // TODO: fix code to match styleguide
-
+// TODO: fade the hover inset
 const PIXEL_CANVAS = $("#pixel-canvas"), //Cache common DOM lookups
   SIZE_PICKER = $("#size-picker"),
   COLOR_PICK = $("#color-picker"),
@@ -9,18 +9,11 @@ const PIXEL_CANVAS = $("#pixel-canvas"), //Cache common DOM lookups
 
 let mouseDown = false, // Tracks status of mouse button
   bgDefault = "#ffffff", //cached bg color here in case I decide to implement transparancy leter
-  color = COLOR_PICK.val(); //initialize input color values
+  color = "#03A9F4"; //initialize input color values
 
 function getTool() {
   //functon to get the current tool selected
   return $('input[name=tool]:radio:checked').val();
-}
-
-function colorChange(newColor) {
-  color = newColor; //change global variable
-  $(".color-tile").css({ //change color on the customized picker button
-    background: color
-  });
 }
 
 function setGridHandler() { //function to set event listeners on the new grid
@@ -28,9 +21,10 @@ function setGridHandler() { //function to set event listeners on the new grid
   //switches used to determine which operation to do based on the current tool
 
   PIXEL_CANVAS.on('touchmove', function(event) { //Touch controls!!
+    event.preventDefault();
     let touch = event.touches[0]; //get position touched
-    let element = document.elementFromPoint(touch.clientX, touch.clientY);//get element at position
-    if (element.tagName === "TD") {  //we only want to modify table cells
+    let element = document.elementFromPoint(touch.clientX, touch.clientY); //get element at position
+    if (element.tagName === "TD") { //we only want to modify table cells
       switch (getTool()) {
         case "pen":
           $(element).css({
@@ -44,7 +38,6 @@ function setGridHandler() { //function to set event listeners on the new grid
           break;
       }
     }
-    preventDefault();
 
   });
   td.on('mouseover', function() { //operate on grid while dragging mouse
@@ -64,7 +57,8 @@ function setGridHandler() { //function to set event listeners on the new grid
     }
   });
 
-  td.on('mousedown', function(e) { //operate on grid while clicking a single cell
+  td.on('mousedown', function(event) { //operate on grid while clicking a single cell
+    event.preventDefault();
     switch (getTool()) {
       case "pen":
         $(this).css({
@@ -77,7 +71,8 @@ function setGridHandler() { //function to set event listeners on the new grid
         });
         break;
       case "picker":
-        colorChange($(this).css("backgroundColor"));
+        color = $(this).css("backgroundColor");
+        COLOR_PICK.spectrum("set", color);
         break;
     }
   });
@@ -130,19 +125,29 @@ $(function() {
     makeGrid();
   });
 
-  COLOR_PICK.change(function(event) { //changes color value when input is changed
-    colorChange(COLOR_PICK.val());
-    PEN.prop("checked", true);
-    //sets the active tool back to pen after the color picker is used
-  });
+  COLOR_PICK.spectrum({
+    showPalette: true,
+    showButtons: true,
+    maxSelectionSize: 12,
+    hideAfterPaletteSelect: true,
+    show: function(newColor) {
+      PEN.prop("checked", true);
+      //sets the active tool back to pen after the color picker is used
+    },
+    move: function(newColor) {
+      color = newColor;
+    }
 
+  });
   $("#clear-grid").click(function() {
     //sets a grid clearing function to be called when the button is pressed
     if (confirm("This will erase all your work!\nAre you sure you want to erase the canvas?")) {
       $("td").css({
         background: bgDefault
       });
+      return false;
     }
+    return false;
   });
 
   $("input[name='lines']").click(function() {
@@ -174,4 +179,5 @@ $(function() {
       //sets to false when mouse is released
       mouseDown = false;
     });
+    COLOR_PICK.spectrum("set", color);
 });
