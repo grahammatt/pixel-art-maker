@@ -21,6 +21,7 @@ function setGridHandler() { //function to set event listeners on the new grid
 
   PIXEL_CANVAS.on('touchmove', function(event) { //Touch controls
     event.preventDefault(); //prevent scrolling while dragging on the grid
+    COLOR_PICK.spectrum("hide");//hide the color picker ass soon as drawing starts
     let touch = event.touches[0]; //get position touched
     let element = document.elementFromPoint(touch.clientX, touch.clientY); //get element at position
     if (element.tagName === "TD") { //we only want to modify table cells
@@ -58,6 +59,7 @@ function setGridHandler() { //function to set event listeners on the new grid
 
   td.on('mousedown', function(event) { //operate on grid while clicking a single cell
     event.preventDefault();
+    COLOR_PICK.spectrum("toggle"); //hide the color picker ass soon as drawing starts
     switch (getTool()) {
       case "pen":
         $(this).css({
@@ -125,10 +127,9 @@ $(function() {
   });
 
   COLOR_PICK.spectrum({  //uses spectrom color picker library
-    showPalette: true,
-    showButtons: true,
+    showPalette: false,
+    showButtons: false,
     maxSelectionSize: 12,
-    hideAfterPaletteSelect: true,
     showInitial: true,
     show: function(newColor) {
       PEN.prop("checked", true);
@@ -174,6 +175,7 @@ $(function() {
     .on('mousedown', function() {
       //sets to true when mouse is held down
       mouseDown = true;
+
     })
     .on('mouseup', function() {
       //sets to false when mouse is released
