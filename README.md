@@ -13,5 +13,5 @@ This project is a responsive web app that dynamically creates a paintable grid v
 - [Font Awesome](https://fontawesome.com/)
 
 ## License
-[This project is licensed under the MIT License](LICENSE.md)
+[This project is licensed under the MIT License](LICENSE)
 
