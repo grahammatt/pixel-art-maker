@@ -1,5 +1,5 @@
 /* jshint esversion: 6 */
-
+// TODO: transpose to vanilla javascript
 const PIXEL_CANVAS = $("#pixel-canvas"), //Cache common DOM lookups
   SIZE_PICKER = $("#size-picker"),
   COLOR_PICK = $("#color-picker"),
@@ -40,6 +40,7 @@ function setGridHandler() { //function to set event listeners on the new grid
     }
 
   });
+  // TODO: Move function outside of setter
   td.on('mouseover', function() { //operate on grid while dragging mouse
     if (mouseDown) {
       switch (getTool()) {
@@ -56,7 +57,7 @@ function setGridHandler() { //function to set event listeners on the new grid
       }
     }
   });
-
+  // TODO: move funtction out of setter
   td.on('mousedown', function(event) { //operate on grid while clicking a single cell
     event.preventDefault();
     COLOR_PICK.spectrum("hide"); //hide the color picker ass soon as drawing starts
