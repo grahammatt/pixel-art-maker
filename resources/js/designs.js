@@ -1,5 +1,22 @@
 /* jshint esversion: 6 */
 // TODO: transpose to vanilla javascript
+// TODO: loo at example code
+// const myCustomDiv = document.createElement('div');
+//
+// function respondToTheClick(evt) {
+//     console.log('A paragraph was clicked: ' + evt.target.textContent);
+// }
+//
+// for (let i = 1; i <= 200; i++) {
+//     const newElement = document.createElement('p');
+//     newElement.textContent = 'This is paragraph number ' + i;
+//
+//     myCustomDiv.appendChild(newElement);
+// }
+//
+// document.body.appendChild(myCustomDiv);
+//
+// myCustomDiv.addEventListener('click', respondToTheClick);
 const PIXEL_CANVAS = $("#pixel-canvas"), //Cache common DOM lookups
   SIZE_PICKER = $("#size-picker"),
   COLOR_PICK = $("#color-picker"),
@@ -16,9 +33,6 @@ function getTool() {
 }
 
 function setGridHandler() { //function to set event listeners on the new grid
-  const td = $("#pixel-canvas td");
-  //switches used to determine which operation to do based on the current tool
-
   PIXEL_CANVAS.on('touchmove', function(event) { //Touch controls
     event.preventDefault(); //prevent scrolling while dragging on the grid
     COLOR_PICK.spectrum("hide"); //hide the color picker ass soon as drawing starts
@@ -40,43 +54,43 @@ function setGridHandler() { //function to set event listeners on the new grid
     }
 
   });
-  // TODO: Move function outside of setter
-  td.on('mouseover', function() { //operate on grid while dragging mouse
+  PIXEL_CANVAS.on('mouseover', function(event) { //operate on grid while dragging mouse
     if (mouseDown) {
       switch (getTool()) {
         case "pen":
-          $(this).css({
+          $(event.target).css({
             background: color
           });
           break;
         case "eraser":
-          $(this).css({
+          $(event.target).css({
             background: bgDefault
           });
           break;
       }
     }
   });
-  // TODO: move funtction out of setter
-  td.on('mousedown', function(event) { //operate on grid while clicking a single cell
+  PIXEL_CANVAS.on('mousedown', function(event) { //operate on grid while clicking a single cell
+    //switches used to determine which operation to do based on the current tool
     event.preventDefault();
     COLOR_PICK.spectrum("hide"); //hide the color picker ass soon as drawing starts
     switch (getTool()) {
       case "pen":
-        $(this).css({
+        $(event.target).css({
           background: color
         });
         break;
       case "eraser":
-        $(this).css({
+        $(event.target).css({
           background: bgDefault
         });
         break;
       case "picker":
-        color = $(this).css("backgroundColor");
+        color = $(event.target).css("backgroundColor");
         COLOR_PICK.spectrum("set", color); //sets the cuolor picker to the selected cells color
         break;
     }
+
   });
 
 }
